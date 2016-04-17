@@ -6,23 +6,7 @@ if (!slackToken) {
   console.error('SLACK_TOKEN is required!')
   process.exit(1)
 }
-// 
-
-      /*
-      //FOR FACEBOOK
-      
-      var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
-      var verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
-      var port = process.env.PORT
-      
-      
-      app.get('/webhook/', function (req, res) {
-        if (req.query['hub.verify_token'] === 'DUNCANTESTING') {
-          res.send(req.query['hub.challenge']);
-        }
-        res.send('Error, wrong validation token');
-      })
-      */
+//
 
 var controller = Botkit.slackbot()
 var bot = controller.spawn({
@@ -35,15 +19,56 @@ bot.startRTM(function (err, bot, payload) {
   }
 })
 
-controller.on('bot_channel_join', function (bot, message) {
-  bot.reply(message, "I'm here!")
-})
+
+controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
+
+    bot.api.reactions.add({
+        timestamp: message.ts,
+        channel: message.channel,
+        name: 'robot_face',
+    }, function(err, res) {
+        if (err) {
+            bot.botkit.log('Failed to add emoji reaction :(', err);
+        }
+    });
+
+
+    controller.storage.users.get(message.user, function(err, user) {
+        if (user && user.name) {
+            bot.reply(message, 'Hello ' + user.name + '!!');
+        } else {
+            bot.reply(message, 'Hello.');
+        }
+    });
+});
+
+controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
+    var name = message.match[1];
+    controller.storage.users.get(message.user, function(err, user) {
+        if (!user) {
+            user = {
+                id: message.user,
+            };
+        }
+        user.name = name;
+        controller.storage.users.save(user, function(err, id) {
+            bot.reply(message, 'Got it. I will call you ' + user.name + ' from now on.');
+        });
+    });
+});
+
+
+
 
 controller.hears(['hello', 'hi'], ['ambient'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
 
-controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
+
+
+
+
+controller.hears(['can I have some water'], ['ambient'], function (bot, message) {
   bot.reply(message, 'Of course you can')
 })
 
