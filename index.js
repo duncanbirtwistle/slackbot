@@ -8,21 +8,21 @@ if (!slackToken) {
 }
 // 
 
-/*
-//FOR FACEBOOK
-
-var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
-var verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
-var port = process.env.PORT
-
-
-app.get('/webhook/', function (req, res) {
-  if (req.query['hub.verify_token'] === 'DUNCANTESTING') {
-    res.send(req.query['hub.challenge']);
-  }
-  res.send('Error, wrong validation token');
-})
-*/
+      /*
+      //FOR FACEBOOK
+      
+      var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
+      var verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
+      var port = process.env.PORT
+      
+      
+      app.get('/webhook/', function (req, res) {
+        if (req.query['hub.verify_token'] === 'DUNCANTESTING') {
+          res.send(req.query['hub.challenge']);
+        }
+        res.send('Error, wrong validation token');
+      })
+      */
 
 var controller = Botkit.slackbot()
 var bot = controller.spawn({
