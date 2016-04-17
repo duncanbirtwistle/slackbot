@@ -7,6 +7,14 @@ if (!slackToken) {
   process.exit(1)
 }
 
+//FOR FACEBOOK
+app.get('/webhook/', function (req, res) {
+  if (req.query['hub.verify_token'] === '<validation_token>') {
+    res.send(req.query['hub.challenge']);
+  }
+  res.send('Error, wrong validation token');
+})
+
 var controller = Botkit.slackbot()
 var bot = controller.spawn({
   token: slackToken
