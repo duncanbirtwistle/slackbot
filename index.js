@@ -8,7 +8,7 @@ if (!slackToken) {
 }
 
 //FOR FACEBOOK
-app.get('/webhook/', function (req, res) {
+Botkit.get('/webhook/', function (req, res) {
   if (req.query['hub.verify_token'] === 'DUNCANTESTING') {
     res.send(req.query['hub.challenge']);
   }
