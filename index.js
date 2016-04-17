@@ -11,7 +11,7 @@ if (!slackToken) {
 //FOR FACEBOOK
 
 var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
-car verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
+var verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
 var port = process.env.PORT
 
 
