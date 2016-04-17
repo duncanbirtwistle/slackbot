@@ -8,6 +8,7 @@ if (!slackToken) {
 }
 // 
 
+/*
 //FOR FACEBOOK
 
 var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
@@ -21,6 +22,7 @@ app.get('/webhook/', function (req, res) {
   }
   res.send('Error, wrong validation token');
 })
+*/
 
 var controller = Botkit.slackbot()
 var bot = controller.spawn({
