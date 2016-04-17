@@ -6,8 +6,15 @@ if (!slackToken) {
   console.error('SLACK_TOKEN is required!')
   process.exit(1)
 }
+// 
 
 //FOR FACEBOOK
+
+var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
+car verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
+car port = process.env.PORT
+
+
 app.get('/webhook/', function (req, res) {
   if (req.query['hub.verify_token'] === 'DUNCANTESTING') {
     res.send(req.query['hub.challenge']);
