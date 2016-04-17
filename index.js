@@ -43,7 +43,7 @@ controller.hears(['hello', 'hi'], ['ambient'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
 
-controller.hears(['can I have some water'], ['ambient'], function (bot, message) {
+controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Of course you can')
 })
 
