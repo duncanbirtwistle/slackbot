@@ -12,7 +12,7 @@ if (!slackToken) {
 
 var accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN
 car verifyToken = process.env.FACEBOOK_VERIFY_TOKEN
-car port = process.env.PORT
+var port = process.env.PORT
 
 
 app.get('/webhook/', function (req, res) {
