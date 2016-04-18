@@ -19,6 +19,7 @@ bot.startRTM(function (err, bot, payload) {
   }
 })
 
+//FINDING USERNAME
 
 controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
 
@@ -26,12 +27,13 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
         if (user && user.name) {
             bot.reply(message, 'Hello ' + user.name + '!!');
         } else {
-            bot.reply(message, 'Hello. What is your name?');
+            bot.reply(message, 'Hello. I'm Trent, your trusty friend to help you with your water supply)
+            bot.reply(message, 'What should I call you?');
         }
     });
 });
 
-controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
+controller.hears([(.*),'call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
     var name = message.match[1];
     controller.storage.users.get(message.user, function(err, user) {
         if (!user) {
@@ -47,8 +49,7 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function
 });
 
 
-
-
+//SIMPLE QUESION FROM USER
 
 controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Of course you can')
@@ -72,6 +73,8 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
   bot.reply(message, help)
 })
 
+//ATTACHEMENT
+
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
   var attachments = [{
@@ -90,6 +93,8 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     console.log(err, resp)
   })
 })
+
+//DONT UNDERSTAND
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
