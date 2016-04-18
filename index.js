@@ -55,7 +55,7 @@ controller.hears(['can I have some water'], ['direct_message'], function (bot, m
 
 //CONVERSATION
 
-controller.hears(['pizzatime'],['direct_message'],function(bot,message) {
+controller.hears(['read'],['direct_message'],function(bot,message) {
   bot.startConversation(message, askReading);
 });
 
