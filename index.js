@@ -27,7 +27,7 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
         if (user && user.name) {
             bot.reply(message, 'Hello ' + user.name + '!!');
         } else {
-            bot.reply(message, 'Hello. I'm Trent, your trusty friend to help you with your water supply)
+            bot.reply(message, 'Hello. I'm Trent, your trusty friend to help you with your water supply')
             bot.reply(message, 'What should I call you?');
         }
     });
