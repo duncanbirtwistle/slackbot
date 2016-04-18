@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @duncanbirtwistle
- Unwatch 1
-  Star 0
-  Fork 259 duncanbirtwistle/slackbot
-forked from BeepBoopHQ/starter-node-bot
- Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Tree: e554e1bcac Find file Copy pathslackbot/index.js
-e554e1b  37 minutes ago
-@duncanbirtwistle duncanbirtwistle Update index.js
-2 contributors @duncanbirtwistle @mbrevoort
-RawBlameHistory     97 lines (78 sloc)  2.84 KB
 var Botkit = require('botkit')
 
 // Expect a SLACK_TOKEN environment variable
@@ -111,5 +94,4 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
+
