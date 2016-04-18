@@ -99,13 +99,13 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
 //ATTACHMENT
 
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
-  var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
+  var text = 'We’re working to help those who struggle the most with their water bills through The Big Difference Scheme.'
   var attachments = [{
     fallback: text,
-    pretext: 'We bring bots to life. :sunglasses: :thumbsup:',
-    title: 'Host, deploy and share your bot in seconds.',
-    image_url: 'https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png',
-    title_link: 'https://beepboophq.com/',
+    pretext: 'Do your bills feel like too much?',
+    title: 'The Big Difference Scheme',
+    image_url: 'https://s3-eu-west-1.amazonaws.com/media.aws.stwater.co.uk/upload/img/BDSLogo.png',
+    title_link: 'https://www.stwater.co.uk/my-account/about-your-account-and-bill/trouble-paying-your-bill/big-difference-scheme/',
     text: text,
     color: '#7CD197'
   }]
