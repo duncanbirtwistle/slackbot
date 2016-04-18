@@ -67,15 +67,16 @@ askReading = function(response, convo) {
   });
 }
 askCheck = function(response, convo) {
-  convo.ask("You said " + response.text + " am I correct?", function(response, convo) {
-    convo.say("Ok.")
-    askWhereDeliver(response, convo);
+  convo.ask("You said " + response.text + ", have I got that right?", function(response, convo) {
+    convo.say("Good! I'll just calculate your bill for this quater");
+    convo.say("Based on a rate of 148.39p per cubic metre your bill is £83.25");
+    askPayment(response, convo);
     convo.next();
   });
 }
-askWhereDeliver = function(response, convo) { 
-  convo.ask("So where do you want it delivered?", function(response, convo) {
-    convo.say("Ok! Good by.");
+askPayment = function(response, convo) { 
+  convo.ask("How would you like to pay?", function(response, convo) {
+    convo.say("Okay");
     convo.next();
   });
 }
