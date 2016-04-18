@@ -95,7 +95,7 @@ askSecuritycode = function(response, convo) {
 
 controller.hears(['my water is discoloured'], ['direct_message'], function (bot, message) {
 
-  bot.reply(message, "I am sorry about that. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry, run your tap for 5 minutes before use and it should go away.")
+  bot.reply(message, "I am sorry about that. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry, run your tap for 5 minutes before use and it should go away :smile:")
   })
 
 //INCIDENT
