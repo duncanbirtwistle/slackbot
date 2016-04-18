@@ -19,6 +19,7 @@ bot.startRTM(function (err, bot, payload) {
   }
 })
 
+//FINDING USERNAME
 
 controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
 
@@ -46,22 +47,13 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function
     });
 });
 
-
-
-
+//EASY REPLY
 
 controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Of course you can')
 })
 
-controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
-  bot.reply(message, 'Hello.')
-  bot.reply(message, 'It\'s nice to talk to you directly.')
-})
-
-controller.hears('.*', ['mention'], function (bot, message) {
-  bot.reply(message, 'You really do care about me. :heart:')
-})
+//HELP
 
 controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
   var help = 'I will respond to the following messages: \n' +
@@ -71,6 +63,8 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
       '`bot help` to see this again.'
   bot.reply(message, help)
 })
+
+//ATTACHEMENT
 
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
@@ -90,6 +84,8 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     console.log(err, resp)
   })
 })
+
+//DOESN'T UNDERSTAND
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
