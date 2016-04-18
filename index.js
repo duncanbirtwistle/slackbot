@@ -60,7 +60,7 @@ controller.hears(['read'],['direct_message'],function(bot,message) {
 });
 
 askReading = function(response, convo) {
-  convo.say("Hello. It\'s that time of year where again where I need to get you to take a meter reading.")
+  convo.say("Hello. It's that time of year where again where I need to get you to take a meter reading.")
   convo.ask("Please could you do so and let me know what is is?", function(response, convo) {
     convo.say("Thank you very much.");
     askCheck(response, convo);
@@ -71,19 +71,29 @@ askCheck = function(response, convo) {
   convo.ask("You said " + response.text + ", have I got that right?", function(response, convo) {
     convo.say("Good! I'll just calculate your bill for this quater");
     convo.say("Based on a rate of 148.39p per cubic metre your bill is £83.25");
-    askPayment(response, convo);
+    askCardpayment(response, convo);
     convo.next();
   });
 }
-askPayment = function(response, convo) { 
-  convo.ask("How would you like to pay?", function(response, convo) {
-
-
-
-    convo.say("Okay");
+askCardpayment = function(response, convo) { 
+  convo.say("If you're ready to pay now lets go ahead.")
+  convo.say("Severn Trent does not store any of your card details.")
+  convo.ask("What is your card number?", function(response, convo) {
+    convo.say(response.text + ", great.");
+    askSecuritycode(response, covnvo);
     convo.next();
   });
 }
+askSecuritycode = function(response, convo) { 
+    convo.ask("What is your security code??", function(response, convo) {
+    convo.say(response.text + ", perfect.");
+    convo.next();
+  });
+}
+
+
+
+
 
 //HELP
 
@@ -115,27 +125,8 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   }, function (err, resp) {
     console.log(err, resp)
   })
-})
-
-//or
-
-controller.hears('another_keyword','direct_message,direct_mention',function(bot,message) {
-  var reply_with_attachments = {
-    'username': 'My bot' ,
-    'text': 'This is a pre-text',
-    'attachments': [
-      {
-        'fallback': 'To be useful, I need you to invite me in a channel.',
-        'title': 'How can I help you?',
-        'text': 'To be useful, I need you to invite me in a channel ',
-        'color': '#7CD197'
-      }
-    ],
-    'icon_url': 'http://lorempixel.com/48/48'
-    }
-
-  bot.reply(message, reply_with_attachments);
-});
+}
+)
 
 //DOESN'T UNDERSTAND
 
