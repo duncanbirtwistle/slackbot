@@ -100,7 +100,7 @@ controller.hears(['incident'], ['direct_message'], function (bot, message) {
  var text = 'An incident at one of our reservoirs means you should not use your water until it is safe to do so. We are working hard to fix the problem and will let you know as soon as we have'
   var attachment = [{
     fallback: text,
-    pretext: '"Sorry to interrupt you but I have some important news.?',
+    pretext: 'Sorry to interrupt you but I have some important news.?',
     title: 'Please do not use your water until further notice',
     title_link: 'http://www.bbc.co.uk/news/uk-england-derbyshire-35786378',
     text: text,
