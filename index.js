@@ -67,7 +67,7 @@ askReading = function(response, convo) {
   });
 }
 askCheck = function(response, convo) {
-  convo.ask("You said " + response.text " am I correct?", function(response, convo) {
+  convo.ask("You said " + response.text + " am I correct?", function(response, convo) {
     convo.say("Ok.")
     askWhereDeliver(response, convo);
     convo.next();
