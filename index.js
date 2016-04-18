@@ -94,7 +94,9 @@ askSecuritycode = function(response, convo) {
 //INCIDENT
 
 controller.hears(['incident'], ['direct_message'], function (bot, message) {
-  bot.reply(message, "Sorry to interrupt you but I have some important news.")
+  bot.say(message, "Sorry to interrupt you but I have some important news.")
+  bot.say(message, "Due a burst water main in Coventry you are likely to be without water until 4pm this afternoon")
+  bot.say(message, "Due a burst water main in Coventry you are likely to be without water until 4pm this afternoon")
 })
 
 
