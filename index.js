@@ -20,7 +20,7 @@ bot.startRTM(function (err, bot, payload) {
 })
 
 
-controller.hears(['hello', 'hi'], 'message_received', function(bot, message) {
+controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
 
     controller.storage.users.get(message.user, function(err, user) {
         if (user && user.name) {
@@ -31,7 +31,7 @@ controller.hears(['hello', 'hi'], 'message_received', function(bot, message) {
     });
 });
 
-controller.hears(['call me (.*)', 'my name is (.*)'], 'message_received', function(bot, message) {
+controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
     var name = message.match[1];
     controller.storage.users.get(message.user, function(err, user) {
         if (!user) {
@@ -48,16 +48,9 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'message_received', functi
 
 
 
-/*
-controller.hears(['hello', 'hi'], ['ambient'], function (bot, message) {
-  bot.reply(message, 'Hello.')
-})
-*/
 
 
-
-
-controller.hears(['can I have some water'], ['ambient'], function (bot, message) {
+controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Of course you can')
 })
 
