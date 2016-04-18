@@ -55,7 +55,7 @@ controller.hears(['can I have some water'], ['direct_message'], function (bot, m
 
 //or
 
-controller.hears(['jump'],['ambient'],function(bot,message) {
+controller.hears(['jump'],['direct_message'],function(bot,message) {
  
     bot.reply(message,{
       text: "A more complex response",
