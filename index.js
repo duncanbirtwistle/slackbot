@@ -94,7 +94,7 @@ askSecuritycode = function(response, convo) {
 //INCIDENT
 
 controller.hears(['incident'], ['direct_message'], function (bot, message) {
-  bot.reply(message, "Hello, " + user.name + " sorry to interrupt you but I have some important news.")
+  bot.reply(message, "Sorry to interrupt you but I have some important news.")
 })
 
 
