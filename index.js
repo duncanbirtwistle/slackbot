@@ -32,7 +32,7 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
     });
 });
 
-controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
+controller.hears(['.*','call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
     var name = message.match[1];
     controller.storage.users.get(message.user, function(err, user) {
         if (!user) {
@@ -85,13 +85,17 @@ askCardpayment = function(response, convo) {
   });
 }
 askSecuritycode = function(response, convo) { 
-    convo.ask("What is your security code??", function(response, convo) {
+    convo.ask("What is your security code?", function(response, convo) {
     convo.say(response.text + ", perfect.");
     convo.next();
   });
 }
 
+//INCIDENT
 
+controller.hears(['incident'], ['direct_message'], function (bot, message) {
+  bot.reply(message, "Hello, " + user.name + " sorry to interrupt you but I have some important news.")
+})
 
 
 
@@ -108,7 +112,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
 
 //ATTACHMENT
 
-controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears(["I'm struggling to pay my bill"], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'We’re working to help those who struggle the most with their water bills through The Big Difference Scheme.'
   var attachments = [{
     fallback: text,
