@@ -56,12 +56,12 @@ controller.hears(['can I have some water'], ['direct_message'], function (bot, m
 //CONVERSATION
 
 controller.hears(['pizzatime'],['direct_message'],function(bot,message) {
-  bot.startConversation(message, askFlavor);
+  bot.startConversation(message, askReading);
 });
 
-askFlavor = function(response, convo) {
-  convo.ask("What flavor of pizza do you want?", function(response, convo) {
-    convo.say("Awesome.");
+askReading = function(response, convo) {
+  convo.ask("Hi" + user.name "it's that time of year where again where I need to get you to take a meter reading. Please could you do so and let me know what is is?", function(response, convo) {
+    convo.say("Thank you very much, I'll just calculate your bill for this quarter.");
     askSize(response, convo);
     convo.next();
   });
