@@ -48,11 +48,11 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'message_received', functi
 
 
 
-
+/*
 controller.hears(['hello', 'hi'], ['ambient'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
-
+*/
 
 
 
