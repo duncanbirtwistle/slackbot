@@ -86,8 +86,8 @@ askCardpayment = function(response, convo) {
 }
 askSecuritycode = function(response, convo) { 
     convo.ask("What is your security code?", function(response, convo) {
-    convo.say(response.text + ", perfect.");
-    convo.say("Your payment of £83.25 to Severn Trent Water has been arranged");
+    convo.say(response.text + ", perfect. \n" + "Your payment of £83.25 to Severn Trent Water has been arranged");
+    convo.say(" ");
     convo.next();
   });
 }
