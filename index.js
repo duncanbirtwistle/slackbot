@@ -1,3 +1,20 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @duncanbirtwistle
+ Unwatch 1
+  Star 0
+  Fork 259 duncanbirtwistle/slackbot
+forked from BeepBoopHQ/starter-node-bot
+ Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Tree: e554e1bcac Find file Copy pathslackbot/index.js
+e554e1b  37 minutes ago
+@duncanbirtwistle duncanbirtwistle Update index.js
+2 contributors @duncanbirtwistle @mbrevoort
+RawBlameHistory     97 lines (78 sloc)  2.84 KB
 var Botkit = require('botkit')
 
 // Expect a SLACK_TOKEN environment variable
@@ -19,7 +36,6 @@ bot.startRTM(function (err, bot, payload) {
   }
 })
 
-//FINDING USERNAME
 
 controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
 
@@ -27,12 +43,12 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
         if (user && user.name) {
             bot.reply(message, 'Hello ' + user.name + '!!');
         } else {
-            bot.reply(message, 'Got it. I will call you ' + user.name + ' from now on.');
-        });
+            bot.reply(message, 'Hello. What is your name?');
+        }
     });
 });
 
-controller.hears([(.*),'call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
+controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
     var name = message.match[1];
     controller.storage.users.get(message.user, function(err, user) {
         if (!user) {
@@ -48,12 +64,17 @@ controller.hears([(.*),'call me (.*)', 'my name is (.*)'], 'direct_message', fun
 });
 
 
-//SIMPLE QUESION FROM USER
+
+
 
 controller.hears(['can I have some water'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Of course you can')
 })
 
+controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
+  bot.reply(message, 'Hello.')
+  bot.reply(message, 'It\'s nice to talk to you directly.')
+})
 
 controller.hears('.*', ['mention'], function (bot, message) {
   bot.reply(message, 'You really do care about me. :heart:')
@@ -67,8 +88,6 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
       '`bot help` to see this again.'
   bot.reply(message, help)
 })
-
-//ATTACHEMENT
 
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
@@ -89,8 +108,8 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   })
 })
 
-//DONT UNDERSTAND
-
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
