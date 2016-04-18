@@ -60,8 +60,8 @@ controller.hears(['read'],['direct_message'],function(bot,message) {
 });
 
 askReading = function(response, convo) {
-  convo.ask("Hi" + user.name "it's that time of year where again where I need to get you to take a meter reading. Please could you do so and let me know what is is?", function(response, convo) {
-    convo.say("Thank you very much, I'll just calculate your bill for this quarter.");
+  convo.ask("Hi" + user.name "it\'s that time of year where again where I need to get you to take a meter reading. Please could you do so and let me know what is is?", function(response, convo) {
+    convo.say("Thank you very much, I\'ll just calculate your bill for this quarter.");
     askSize(response, convo);
     convo.next();
   });
