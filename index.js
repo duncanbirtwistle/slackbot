@@ -53,6 +53,18 @@ controller.hears(['can I have some water'], ['direct_message'], function (bot, m
   bot.reply(message, 'Of course you can')
 })
 
+//or
+
+controller.heats(['jump'],['ambient'],function(bot,message) {
+ 
+    bot.reply(message,{
+      text: "A more complex response",
+      username: "ReplyBot",
+      icon_emoji: ":dash:",
+    });
+ 
+})
+
 //HELP
 
 controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
