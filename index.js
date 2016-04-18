@@ -28,7 +28,7 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
             bot.reply(message, 'Hello ' + user.name + '!!');
         } else {
             bot.reply(message, 'Hello. I'm Trent, your trusty friend to help you with your water supply')
-            bot.reply(message, 'What should I call you?');
+            bot.reply(message, 'What should I call you?')
         }
     });
 });
@@ -55,10 +55,6 @@ controller.hears(['can I have some water'], ['direct_message'], function (bot, m
   bot.reply(message, 'Of course you can')
 })
 
-controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
-  bot.reply(message, 'Hello.')
-  bot.reply(message, 'It\'s nice to talk to you directly.')
-})
 
 controller.hears('.*', ['mention'], function (bot, message) {
   bot.reply(message, 'You really do care about me. :heart:')
