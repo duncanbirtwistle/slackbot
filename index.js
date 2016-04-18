@@ -80,7 +80,7 @@ askCardpayment = function(response, convo) {
   convo.say("Severn Trent does not store any of your card details.")
   convo.ask("What is your card number?", function(response, convo) {
     convo.say(response.text + ", great.");
-    askSecuritycode(response, covnvo);
+    askSecuritycode(response, convo);
     convo.next();
   });
 }
