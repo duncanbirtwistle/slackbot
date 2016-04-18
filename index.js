@@ -98,11 +98,11 @@ controller.hears(['my water is discoloured'], ['direct_message'], function (bot,
   bot.reply(message, "I am sorry about that. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry, run your tap for 5 minutes before use and it should go away :smile:")
   })
 
-//INCIDENT
+//WHERE DOES MY WATER COME FROM
 
 controller.hears(['where does my water come from'], ['direct_message'], function (bot, message) {
 
-  bot.reply(message, "Sorry to interrupt you but I have some important news. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry")
+  bot.reply(message, "Good question :thumbsup: Your water in Coventry comes along way to get to you! We take water from the River Severn in Gloucestershire, treat it to make it safe, and then pump it 40 miles uphill to Coventry.")
   })
 
 
