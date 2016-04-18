@@ -32,7 +32,7 @@ controller.hears(['hello', 'hi'], 'direct_message', function(bot, message) {
     });
 });
 
-controller.hears(['','call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
+controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message', function(bot, message) {
     var name = message.match[1];
     controller.storage.users.get(message.user, function(err, user) {
         if (!user) {
