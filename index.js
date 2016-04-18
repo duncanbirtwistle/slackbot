@@ -77,6 +77,9 @@ askCheck = function(response, convo) {
 }
 askPayment = function(response, convo) { 
   convo.ask("How would you like to pay?", function(response, convo) {
+
+
+
     convo.say("Okay");
     convo.next();
   });
@@ -93,7 +96,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
   bot.reply(message, help)
 })
 
-//ATTACHEMENT
+//ATTACHMENT
 
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
@@ -113,6 +116,26 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     console.log(err, resp)
   })
 })
+
+//or
+
+controller.hears('another_keyword','direct_message,direct_mention',function(bot,message) {
+  var reply_with_attachments = {
+    'username': 'My bot' ,
+    'text': 'This is a pre-text',
+    'attachments': [
+      {
+        'fallback': 'To be useful, I need you to invite me in a channel.',
+        'title': 'How can I help you?',
+        'text': 'To be useful, I need you to invite me in a channel ',
+        'color': '#7CD197'
+      }
+    ],
+    'icon_url': 'http://lorempixel.com/48/48'
+    }
+
+  bot.reply(message, reply_with_attachments);
+});
 
 //DOESN'T UNDERSTAND
 
