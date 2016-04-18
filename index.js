@@ -70,7 +70,7 @@ askReading = function(response, convo) {
 askCheck = function(response, convo) {
   convo.ask("You said " + response.text + ", have I got that right?", function(response, convo) {
     convo.say("Good! I'll just calculate your bill for this quater");
-    convo.say("Based on a rate of 148.39p per cubic metre your bill is £83.25");
+    convo.say("Based on a rate of 148.39p per cubic metre *your bill is £83.25*");
     askCardpayment(response, convo);
     convo.next();
   });
@@ -86,7 +86,7 @@ askCardpayment = function(response, convo) {
 }
 askSecuritycode = function(response, convo) { 
     convo.ask("What is your security code?", function(response, convo) {
-    convo.say(response.text + ", perfect. Your payment of £83.25 to Severn Trent Water has been arranged");
+    convo.say(response.text + ", perfect. *Your payment of £83.25 to Severn Trent Water has been arranged*");
     convo.next();
   });
 }
