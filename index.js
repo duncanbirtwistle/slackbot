@@ -91,28 +91,19 @@ askSecuritycode = function(response, convo) {
   });
 }
 
-//INCIDENT
+//DISCOLOURED
 
-controller.hears(['incident'], ['direct_message'], function (bot, message) {
+controller.hears(['my water is discoloured'], ['direct_message'], function (bot, message) {
 
-  //bot.reply(message, "Sorry to interrupt you but I have some important news.")
-
- var text = 'An incident at one of our reservoirs means you should not use your water until it is safe to do so. We are working hard to fix the problem and will let you know as soon as we have'
-  var attachment = [{
-    fallback: text,
-    pretext: 'Sorry to interrupt you but I have some important news.?',
-    title: 'Please do not use your water until further notice',
-    title_link: 'http://www.bbc.co.uk/news/uk-england-derbyshire-35786378',
-    text: text,
-    color: '#7CD197'
-  }]
-
-   bot.reply(message, {
-    attachments: attachment
-  }, function (err, resp) {
-    console.log(err, resp)
+  bot.reply(message, "I am sorry about that. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry, run your tap for 5 minutes before use and it should go away.")
   })
 
+//INCIDENT
+
+controller.hears(['where does my water come from'], ['direct_message'], function (bot, message) {
+
+  bot.reply(message, "Sorry to interrupt you but I have some important news. Due to a burst main in your area of Coventry there is a chance that you will get discoloured water for a period while we repair the leak. It is harmless so don't worry")
+  })
 
 
 //HELP
