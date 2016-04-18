@@ -95,7 +95,7 @@ askSecuritycode = function(response, convo) {
 
 controller.hears(['incident'], ['direct_message'], function (bot, message) {
 
-  bot.reply(message, "Sorry to interrupt you but I have some important news.")
+  //bot.reply(message, "Sorry to interrupt you but I have some important news.")
 
  var text = 'An incident at one of our reservoirs means you should not use your water until it is safe to do so. We are working hard to fix the problem and will let you know as soon as we have'
   var attachment = [{
